@@ -39,12 +39,12 @@ public class LogAnalyserTest {
 
     @Ignore
     @Test(expected = IllegalArgumentException.class)
-    public void isValidLogFileNameToShortExceptionThrown() throws Exception {
+    public void isValidLogFileName_ToShort_ExceptionThrown() throws Exception {
         logAnalyser.isValidLogFileName("");
     }
 
     @Test
-    public void isValidLogFileNameValidNameReturnsTrue() throws Exception{
+    public void isValidLogFileName_ValidName_ReturnsTrue() throws Exception{
         Assert.assertEquals(fExpected,logAnalyser.isValidLogFileName(fInput));
     }
 }
