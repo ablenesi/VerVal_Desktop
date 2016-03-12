@@ -5,6 +5,7 @@ package ro.ubbcluj.scs;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println(LogAnalyser.isValidLogFileName("test.filename"));
+        LogAnalyser logAnalyser = new LogAnalyser();
+        System.out.println(logAnalyser.isValidLogFileName("test.filename"));
     }
 }
