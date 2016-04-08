@@ -33,7 +33,8 @@ public class LogAnalyserParameterizedTest {
 
     @Before
     public void setUp() throws Exception {
-        logAnalyser = new LogAnalyser(new FakeFileManager());
+        FileManagerFactory.getInstance().setFileManager(new FakeFileManager());
+        logAnalyser = new LogAnalyser();
     }
 
     @After

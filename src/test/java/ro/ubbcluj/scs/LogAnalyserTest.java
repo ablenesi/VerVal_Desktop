@@ -13,11 +13,8 @@ public class LogAnalyserTest {
 
     @Before
     public void setUp() throws Exception {
-        // With constructor
-        logAnalyser = new LogAnalyser(new FakeFileManager());
-        // Or with getter setter
+        FileManagerFactory.getInstance().setFileManager(new FakeFileManager());
         logAnalyser = new LogAnalyser();
-        logAnalyser.setFileManager(new FakeFileManager());
     }
 
     @After
