@@ -1,22 +1,29 @@
 package ro.ubbcluj.scs;
 
-import java.util.IllegalFormatException;
-
 /**
  * Created by Blenesi Attila on 2/29/16.
  */
 public class LogAnalyser {
 
-    public static final String SUFFIX = ".str";
+    private FileManager fileManager;
 
-    public boolean isValidLogFileName(String name){
-        if(name != null){
-            if(name.length()<SUFFIX.length()){
+    public LogAnalyser(){}
+
+    public LogAnalyser(FileManager fileManager) {
+        this.fileManager = fileManager;
+    }
+
+    public void setFileManager(FileManager fileManager) {
+        this.fileManager = fileManager;
+    }
+
+    public boolean isValidLogFileName(String name) {
+        if (name != null) {
+            if (name.length() < fileManager.getLogNameExt().length() + 2) {
                 throw new IllegalArgumentException("Name is to short.");
             }
-            return name.endsWith(SUFFIX);
+            return name.endsWith("." + fileManager.getLogNameExt());
         }
         return false;
     }
-
 }
