@@ -7,14 +7,19 @@ import java.util.IllegalFormatException;
  */
 public class LogAnalyser {
 
-    public static final String SUFFIX = ".str";
+    private FileManager fileManager;
+
+    public LogAnalyser(FileManager fileManager){
+        this.fileManager = fileManager;
+    }
+
+    public void setFileManager(FileManager fileManager) {
+        this.fileManager = fileManager;
+    }
 
     public boolean isValidLogFileName(String name){
         if(name != null){
-            if(name.length()<SUFFIX.length()){
-                throw new IllegalArgumentException("Name is to short.");
-            }
-            return name.endsWith(SUFFIX);
+            return fileManager.isValid(name);
         }
         return false;
     }
