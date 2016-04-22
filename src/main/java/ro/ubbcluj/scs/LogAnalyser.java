@@ -1,19 +1,31 @@
 package ro.ubbcluj.scs;
 
+
 /**
  * Created by Blenesi Attila on 2/29/16.
  */
 public class LogAnalyser {
 
-    public LogAnalyser() {}
+    private WebService webService;
 
     public boolean isValidLogFileName(String name) {
-        if (name != null) {
-            if (name.length() < FileManagerFactory.getInstance().getFileManager().getLogNameExt().length() + 2) {
-                throw new IllegalArgumentException("Name is to short.");
-            }
-            return name.endsWith("." + FileManagerFactory.getInstance().getFileManager().getLogNameExt());
+        isTheFileValid();
+
+        if(webService != null && name.length()<3){
+            webService.logError(name+" Too short");
         }
         return false;
+    }
+
+    public void isTheFileValid(){
+
+    }
+
+    public void setWebService(WebService webService) {
+        this.webService = webService;
+    }
+
+    public WebService getWebService() {
+        return webService;
     }
 }
